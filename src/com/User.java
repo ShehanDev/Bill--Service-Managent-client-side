@@ -19,6 +19,7 @@ public class User {
 
 			//Provide the correct details: DBServer/DBName, username, password
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3311/buyer2", "root", "");
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/buyer2", "root", "root");
 			
 		}catch (Exception e){
 			e.printStackTrace();
