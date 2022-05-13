@@ -22,6 +22,7 @@ $(document).on("click", "#btnSave", function(event){
 var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT"; 
 	$.ajax( 
 	{ 
+		
 	 url : "UserAPI", 
 	 type : type, 
 	 data : $("#formItem").serialize(), 
@@ -31,7 +32,9 @@ var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT";
 		 onItemSaveComplete(response.responseText, status); 
 	 } 
 	}); 
+	
 });
+
 
 function onItemSaveComplete(response, status){ 
 	if (status == "success") {
