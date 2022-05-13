@@ -56,10 +56,10 @@
 <div id="alertError" class="alert alert-danger"></div>
 	<br>
 	<div id="divItemGrid">
-	<%
+ <% 
 	User CartObj = new User(); 
-	 out.print(CartObj.readCart()); 
-	%>
+    out.print(CartObj.readCart()); 
+%>
 	</div>
 </div> </div> </div> 
 	
