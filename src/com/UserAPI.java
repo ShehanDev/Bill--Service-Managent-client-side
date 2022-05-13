@@ -70,10 +70,14 @@ response.getWriter().write(output);
 												paras.get("version").toString(), 
 												paras.get("cost").toString(), 
 												paras.get("date").toString()
-												//paras.get("sector").toString(),
+												
 												); 
 		response.getWriter().write(output); 
 	}
+	
+	
+	
+	
 
 	/**
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
