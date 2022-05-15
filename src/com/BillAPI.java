@@ -41,18 +41,18 @@ public class BillAPI extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	// TODO Auto-generated method stub
+		//doGet(request, response);
 		String output = billObj.insertBill(request.getParameter("hidItemIDSave"),
 				request.getParameter("billNo"),
-				request.getParameter("unitType"),
-				request.getParameter("month"),
-				request.getParameter("noUnits"),
+            	request.getParameter("unitType"),
+				request.getParameter("month"),		
+				request.getParameter("noUnits"),		
 				request.getParameter("costPer_month"), 
 				request.getParameter("sub_total")
-				);
-	
-              response.getWriter().write(output);
+			);
+
+           response.getWriter().write(output);
 	}
 	
 	
@@ -69,11 +69,11 @@ public class BillAPI extends HttpServlet {
 
 		Map paras = getParasMap(request); 
 		String output = billObj.updateBill(paras.get("hidItemIDSave").toString(), 
-												paras.get("billno").toString(), 
-												paras.get("unitype").toString(),
-												paras.get("nounits").toString(), 
+												paras.get("billNo").toString(), 
+												paras.get("unitType").toString(),
+												paras.get("noUnits").toString(),
 												paras.get("month").toString(), 
-												paras.get("month_per_cost").toString(),
+												paras.get("costPer_month").toString(),
 												paras.get("sub_total").toString()
 												); 
 		response.getWriter().write(output); 
