@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<div class="container"><div class="row"><div class="col-6">
+<div class="container-fluid"><div class="row"><div class="col-7">
 <h1>Bill Management</h1>
 
 	<form id="formItem" name="formItem">
@@ -46,12 +46,11 @@
 	<br>
 	<div id="divItemGrid">
  
-	<%  
-	Bill billObj = new Bill(); 
-	 out.print(billObj.readBill()); 
-	%>
+	<%  Bill billObj = new Bill(); 
+	 out.print(billObj.readBill()); %>
 	</div>
-</div> </div> </div> 
+</div> </div>
+ </div> 
 	
 </body>
 </html>
