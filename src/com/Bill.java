@@ -25,8 +25,7 @@ public class Bill {
 		return con;
 	}
 			
-		
-		
+			
 		//Insert Project Details
 		public String insertBill(String billID, String billNo, String  unitType, String noUnits,String month, String costPer_month, String sub_total){
 			String output = "";
@@ -46,9 +45,7 @@ public class Bill {
 					 preparedStmt.setString(4,noUnits);
 					 preparedStmt.setString(5, month);
 					 preparedStmt.setDouble(6,Float.parseFloat(costPer_month)); 
-					 preparedStmt.setDouble(7,Float.parseFloat(sub_total));
-					 
-					 
+					 preparedStmt.setDouble(7,Float.parseFloat(sub_total));		  
 					 // execute the statement
 					 preparedStmt.execute();
 					 con.close();
@@ -65,15 +62,7 @@ public class Bill {
 			 return output;
 		 }
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
 		private String readBill1() {
 			// TODO Auto-generated method stub
 			return null;
@@ -87,11 +76,10 @@ public class Bill {
 				Connection con = connect();
 					if (con == null){
 						return "Error while connecting to the database for reading."; 
-			}
-					
+			}				
 				// Prepare the html table to be displayed
-				output = 
-						"<table border='1' >"+ 
+				output = "<div   class=\"container-fluid\" >"+
+						"<table border='1'  class=\"table align-middle\" >"+ 
 						"<tr >" +
 							 "<th >Bill No</th>" +
 							 "<th >Unit Type</th>" +
@@ -101,7 +89,8 @@ public class Bill {
 							 "<th>Total</th>" +	
 							 "<th>Update</th>" +
 							 "<th>Remove</th>" +
-						 "</tr>";
+						 "</tr>"+
+					     "</div>";
 	
 				String query = "select * from `bill`";
 				 Statement stmt = con.createStatement();
@@ -118,9 +107,7 @@ public class Bill {
 					 String  noUnits = Integer.toString(rs.getInt("noUnits"));
 					 String month = rs.getString("month");
 					 String costPer_month = Float.toString(rs.getFloat("costPer_month"));
-					 String sub_total = Float.toString(rs.getFloat("sub_total"));
-	
-					 
+					 String sub_total = Float.toString(rs.getFloat("sub_total"));		 
 					 // Add into the html table
 					 
 					 //output += "<tr><td>" + orderId + "</td>";
@@ -129,10 +116,7 @@ public class Bill {
 					 output += "<td>" + noUnits + "</td>";
 					 output += "<td>" + month + "</td>";
 					 output += "<td>" + costPer_month + "</td>";
-					 output += "<td>" + sub_total + "</td>";
-		
-					 
-					 
+					 output += "<td>" + sub_total + "</td>";	 
 					 // buttons
 					
 					 output += "<td><input name='btnUpdate' type='button' value='Update' "
@@ -148,16 +132,16 @@ public class Bill {
 			 
 			 }catch (Exception e){
 				 
-				 output = "Error while reading the cart orders.";
+				 output = "Error while reading the Bill .";
 				 System.err.println(e.getMessage());
 			 }
-			 return output;
+			return output;
 			 
 		}
 		
 		
 //		
-		public String updateBill( String billId,String billNo, String  unitType,String noUnits,String month, String costPer_month, String sub_total){ 
+		public String updateBill( String billId,String billNo, String  unitType,String month,String noUnits, String costPer_month, String sub_total){ 
 			String output = ""; 
 			try{
 				Connection con = connect();
@@ -178,11 +162,7 @@ public class Bill {
 				 preparedStmt.setDouble(5, Float.parseFloat(costPer_month)); 
 				 preparedStmt.setDouble(6, Float.parseFloat(sub_total)); 
 				 preparedStmt.setString(7, billId);
-				// preparedStmt.setString(4, sector);
-				
-				 
- 
-				 
+				// preparedStmt.setString(4, sector);				 
 				 // execute the statement
 				 preparedStmt.execute(); 
 				 con.close(); 
@@ -203,8 +183,6 @@ public class Bill {
 		
 		
 		
-//		
-//
 		public String deleteBill(String billId) { 
 			String output = ""; 
 			try{ 
@@ -232,5 +210,5 @@ public class Bill {
 			} 
 			return output; 
 		}
-//		
+		
 }
