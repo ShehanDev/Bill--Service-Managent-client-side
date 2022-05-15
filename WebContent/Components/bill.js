@@ -19,7 +19,7 @@ $(document).on("click", "#btnSave", function(event){
 
 
 // If valid------------------------
-var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT"  ; 
+var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT"; 
 	$.ajax( 
 	{ 
 		
@@ -34,8 +34,6 @@ var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT"  ;
 	}); 
 	
 });
-
-
 
 
 function onItemSaveComplete(response, status){ 
@@ -71,14 +69,14 @@ function onItemSaveComplete(response, status){
 // UPDATE==========================================
 $(document).on("click", ".btnUpdate", function(event){ 
 		
-		 $("hidItemIDSave").val($(this).data("userid")); 
+		 $("#hidItemIDSave").val($(this).data("userid")); 
 		 $("#billNo").val($(this).closest("tr").find('td:eq(0)').text()); 
 		 $("#unitType").val($(this).closest("tr").find('td:eq(1)').text()); 
 		 $("#noUnits").val($(this).closest("tr").find('td:eq(2)').text()); 
 		 $("#month").val($(this).closest("tr").find('td:eq(3)').text()); 
 		 $("#costPer_month").val($(this).closest("tr").find('td:eq(4)').text());  
 		 $("#sub_total").val($(this).closest("tr").find('td:eq(5)').text()); 
-		 //$("#").val($(this).closest("tr").find('td:eq(8)').text()); 
+		
 		 
 });
 
@@ -132,50 +130,56 @@ function onItemDeleteComplete(response, status){
 function validateItemForm(){
 	// CODE
 
-//billNo---------------------------
-//if ($("#billNo").val().trim() == "")
-//{
-//return "Insert billNo.";
-//} 
-
-//unitType------------------------------
-if ($("#unitType").val().trim() == "")
+/*//Address---------------------------
+if ($("#address").val().trim() == "")
 {
-return "Insert unitType.";
+return "Insert Address.";
+} 
+
+//NIC------------------------------
+if ($("#NIC").val().trim() == "")
+{
+return "Insert NIC.";
 }
 
-//month -----------------------------
-if ($("#month").val().trim() == "")
+//Software Name------------------------------
+if ($("#softwareName").val().trim() == "")
 {
-return "Insert Month.";
+return "Insert software Name.";
 }
 
-//noUnits ------------------------------
-if ($("#noUnits").val().trim() == "")
+//Size-------------------------------
+if ($("#size").val().trim() == "")
 {
-return "Insert noUnits.";
+return "Insert Size.";
 }
 
+//Version----------------------------
+if ($("#version").val().trim() == "")
+{
+return "Insert version.";
+}
 
-
+//Date---------------------------------
+if ($("#date").val().trim() == "")
+{
+return "Insert Date.";
+}
+	
+// Cost-------------------------------
+if ($("#cost").val().trim() == ""){
+	
+	return "Insert Order Cost.";
+}
 // is numerical value
-var sub_total = $("#sub_total").val().trim();
-if (!$.isNumeric(sub_total)){
-			
-	return "Insert a numerical value for cost.";
-}
-$("#sub_total").val(parseFloat(sub_total).toFixed(2));
-
-
-// is numerical value
-var costPer_month = $("#costPer_month").val().trim();
-if (!$.isNumeric(costPer_month)){
+var tmpPrice = $("#cost").val().trim();
+if (!$.isNumeric(tmpPrice)){
 			
 	return "Insert a numerical value for cost.";
 }
 		
 // convert to decimal price
-$("#costPer_month").val(parseFloat(costPer_month).toFixed(2));
+$("#cost").val(parseFloat(tmpPrice).toFixed(2));*/
 
 
 	return true;
