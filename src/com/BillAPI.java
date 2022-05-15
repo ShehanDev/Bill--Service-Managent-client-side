@@ -56,8 +56,6 @@ public class BillAPI extends HttpServlet {
 	}
 	
 	
-	
-	
 
 	/**
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)

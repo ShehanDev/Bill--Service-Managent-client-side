@@ -1,3 +1,13 @@
+$(document).ready(function()
+{
+if ($("#alertSuccess").text().trim() == "")
+{
+$("#alertSuccess").hide();
+}
+$("#alertError").hide();
+}
+);
+
 $(document).on("click", "#btnSave", function(event){ 
 	
 	// Clear alerts---------------------
@@ -130,56 +140,44 @@ function onItemDeleteComplete(response, status){
 function validateItemForm(){
 	// CODE
 
-/*//Address---------------------------
-if ($("#address").val().trim() == "")
+/*//billNo---------------------------
+if ($("#billNo").val().trim() == "")
 {
-return "Insert Address.";
-} 
+return "Insert billNo.";
+} */
 
-//NIC------------------------------
-if ($("#NIC").val().trim() == "")
+//month------------------------------
+if ($("#month").val().trim() == "")
 {
-return "Insert NIC.";
-}
-
-//Software Name------------------------------
-if ($("#softwareName").val().trim() == "")
-{
-return "Insert software Name.";
+return "Insert month.";
 }
 
-//Size-------------------------------
-if ($("#size").val().trim() == "")
+// noUnits------------------------------
+if ($("#noUnits").val().trim() == "")
 {
-return "Insert Size.";
+return "Insert noUnits.";
 }
 
-//Version----------------------------
-if ($("#version").val().trim() == "")
-{
-return "Insert version.";
-}
-
-//Date---------------------------------
-if ($("#date").val().trim() == "")
-{
-return "Insert Date.";
-}
-	
-// Cost-------------------------------
-if ($("#cost").val().trim() == ""){
-	
-	return "Insert Order Cost.";
-}
-// is numerical value
-var tmpPrice = $("#cost").val().trim();
+var tmpPrice = $("#costPer_month").val().trim();
 if (!$.isNumeric(tmpPrice)){
+			
+	return "Insert a numerical value for cost.";
+}	
+// convert to decimal price
+$("#costPer_month").val(parseFloat(tmpPrice).toFixed(2));
+
+
+
+
+// is numerical value
+var tmpTotal = $("#sub_total").val().trim();
+if (!$.isNumeric(tmpTotal)){
 			
 	return "Insert a numerical value for cost.";
 }
 		
 // convert to decimal price
-$("#cost").val(parseFloat(tmpPrice).toFixed(2));*/
+$("#sub_total").val(parseFloat(tmpTotal).toFixed(2));
 
 
 	return true;
